@@ -394,21 +394,6 @@ section { position: relative; z-index: 1; }
 .pch-dot.r { background: var(--red); }
 .pch-title { font-family: 'Share Tech Mono', monospace; font-size: .65rem; color: var(--text); margin-left: 8px; letter-spacing: 2px; }
 .profile-card-body { padding: 28px; }
-.profile-avatar {
-  width: 110px; height: 110px; border-radius: 6px; overflow: hidden;
-  border: 1px solid rgba(0,255,156,.25); margin-bottom: 20px;
-  background: linear-gradient(135deg, var(--navy), #1a2744);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Rajdhani', sans-serif; font-size: 2.4rem; font-weight: 700;
-  color: var(--green); box-shadow: 0 0 20px rgba(0,255,156,.12), 0 0 0 1px rgba(0,255,156,.08);
-  position: relative;
-}
-.profile-avatar img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: center top;
-  border-radius: 6px; z-index: 1;
-}
-.profile-avatar .avatar-fallback { z-index: 0; }
 .profile-name { font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; margin-bottom: 4px; }
 .profile-role { font-family: 'Share Tech Mono', monospace; font-size: .7rem; color: var(--green); letter-spacing: 2px; margin-bottom: 20px; }
 .profile-meta { display: flex; flex-direction: column; gap: 8px; }
@@ -1055,10 +1040,6 @@ section { position: relative; z-index: 1; }
             <span class="pch-title">AGENT_PROFILE.json</span>
           </div>
           <div class="profile-card-body">
-            <div class="profile-avatar">
-              <img src="assets/Ashwin.png" alt="Ashwin T" onerror="this.style.display='none';document.getElementById('avatarFallback').style.display='flex'">
-              <span class="avatar-fallback" id="avatarFallback" style="display:none">AT</span>
-            </div>
             <div class="profile-name">ASHWIN T</div>
             <div class="profile-role">> CYBER_SECURITY_ANALYST</div>
             <div class="profile-meta">
@@ -1784,4 +1765,14 @@ const barObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.querySelectorAll('[data-w]').forEach(bar => {
-        setTimeout(() => bar.style.width = bar.dataset.w + '%
+        setTimeout(() => bar.style.width = bar.dataset.w + '%', 200);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.skill-module,.dash-panel,.sec-dashboard').forEach(el => barObs.observe(el));
+
+window.addEventListener('load', () => window.scrollTo(0, 0));
+</script>
+</body>
+</html>
