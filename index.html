@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Ashwin T — Cybersecurity Portfolio | CEH v12 Certified Ethical Hacker & Penetration Tester"/>
+<meta name="description" content="Ashwin T — Cybersecurity Portfolio | CEH v12 Certified Ethical Hacker &amp; Penetration Tester"/>
 <title>ASHWIN T // CYBER_PORTFOLIO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Exo+2:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
@@ -430,7 +430,7 @@ section { position: relative; z-index: 1; }
 .ms-track { height: 3px; background: rgba(255,255,255,.05); border-radius: 1px; overflow: hidden; }
 .ms-fill { height: 100%; border-radius: 1px; transition: width 1.4s cubic-bezier(.4,0,.2,1); width: 0%; }
 .ms-fill.g { background: linear-gradient(90deg, #00c674, var(--green)); box-shadow: 0 0 6px var(--green); }
-.ms-fill.b { background: linear-gradient(90deg, #007aff, var(--blue)); box-shadow: 0 0 6px var(--blue); }
+.ms-fill.b { background: linear-gradient(90deg, #007aff, var(--blue)); box-shadow: 0 0 6px var(--blue)); }
 .ms-fill.r { background: linear-gradient(90deg, #cc0000, var(--red)); }
 .about-text { font-size: 1rem; font-weight: 300; line-height: 1.9; color: var(--text); }
 .about-text p { margin-bottom: 16px; }
@@ -478,7 +478,7 @@ section { position: relative; z-index: 1; }
 .skill-track { height: 4px; background: rgba(255,255,255,.04); border-radius: 1px; overflow: hidden; }
 .skill-fill { height: 100%; border-radius: 1px; width: 0%; transition: width 1.6s cubic-bezier(.4,0,.2,1); }
 .sf-green { background: linear-gradient(90deg, rgba(0,200,100,.6), var(--green)); box-shadow: 0 0 6px var(--green); }
-.sf-blue { background: linear-gradient(90deg, rgba(0,150,200,.6), var(--blue)); box-shadow: 0 0 6px var(--blue); }
+.sf-blue { background: linear-gradient(90deg, rgba(0,150,200,.6), var(--blue)); box-shadow: 0 0 6px var(--blue)); }
 .sf-red { background: linear-gradient(90deg, rgba(200,0,0,.6), var(--red)); }
 .sf-amber { background: linear-gradient(90deg, rgba(180,120,0,.6), var(--amber)); }
 
@@ -532,6 +532,7 @@ section { position: relative; z-index: 1; }
 }
 .stamp-classified { border: 2px solid var(--red); color: var(--red); opacity: .8; }
 .stamp-open { border: 2px solid var(--green); color: var(--green); opacity: .8; }
+.stamp-beta { border: 2px solid var(--amber); color: var(--amber); opacity: .8; }
 .case-img {
   width: 100%; height: 200px; object-fit: cover;
   display: block; position: relative;
@@ -869,8 +870,24 @@ section { position: relative; z-index: 1; }
 .reveal-l.in { opacity: 1; transform: none; }
 .reveal-r { opacity: 0; transform: translateX(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.34,1.2,.64,1); }
 .reveal-r.in { opacity: 1; transform: none; }
+
+/* ── NEW: Smooth slide-from-left for project cards ── */
+.reveal-slide-l {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity .75s cubic-bezier(.25,.46,.45,.94),
+    transform .75s cubic-bezier(.34,1.3,.64,1);
+}
+.reveal-slide-l.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
 .d4{transition-delay:.4s} .d5{transition-delay:.5s} .d6{transition-delay:.6s}
+/* Extra delay steps for the new card */
+.d7{transition-delay:.55s}
 
 /* ════════════════════════════════════════════════════
    RESPONSIVE
@@ -1163,7 +1180,7 @@ section { position: relative; z-index: 1; }
   <div class="sec-wrap">
     <div class="sec-header reveal">
       <div class="sec-label">Arsenal Database</div>
-      <h2 class="sec-title">TOOLS_&_TECH</h2>
+      <h2 class="sec-title">TOOLS_&amp;_TECH</h2>
     </div>
     <div class="tools-grid">
       <div class="tool-card reveal d1"><span class="tool-icon">🦈</span><div class="tool-name">Wireshark</div><div class="tool-type">PACKET ANALYZER</div><div class="tool-glow tg-blue"></div></div>
@@ -1190,7 +1207,9 @@ section { position: relative; z-index: 1; }
       <h2 class="sec-title">PROJECT_FILES</h2>
     </div>
     <div class="projects-grid">
-      <div class="case-file reveal d1">
+
+      <!-- Project 1 — CTF Machine (existing, now with slide-left) -->
+      <div class="case-file reveal-slide-l d1">
         <div class="case-stamp stamp-open">ACTIVE</div>
         <div class="case-img-content">
           <div>
@@ -1215,7 +1234,9 @@ section { position: relative; z-index: 1; }
           </div>
         </div>
       </div>
-      <div class="case-file reveal d2">
+
+      <!-- Project 2 — Outfit Analyzer (existing, now with slide-left) -->
+      <div class="case-file reveal-slide-l d2">
         <div class="case-stamp stamp-classified">CLASSIFIED</div>
         <div class="case-img-content">
           <div>
@@ -1239,6 +1260,35 @@ section { position: relative; z-index: 1; }
           </div>
         </div>
       </div>
+
+      <!-- ══ NEW PROJECT — FTMS Sentinel ══ -->
+      <div class="case-file reveal-slide-l d3">
+        <div class="case-stamp stamp-beta">BETA</div>
+        <div class="case-img-content" style="background: linear-gradient(135deg, #070d1a, #0c1a2e);">
+          <div>
+            <span class="case-img-icon">📁</span>
+            <div>FTMS_SENTINEL_v1.0<br>FILE_TRANSFER_MGMT</div>
+          </div>
+          <div class="case-scan-line"></div>
+        </div>
+        <div class="case-body">
+          <div class="case-id">CASE_ID: GH-2024-003 // CLASSIFICATION: OPEN-SOURCE</div>
+          <div class="case-title">FTMS Sentinel</div>
+          <div class="case-desc">File Transfer Management System engineered with a security-first mindset. Provides monitored, auditable file transfer operations with integrity verification, access controls, and real-time sentinel logging to detect anomalous transfer behavior.</div>
+          <div class="case-tags">
+            <span class="case-tag badge-green">File Security</span>
+            <span class="case-tag badge-blue">Python</span>
+            <span class="case-tag badge-red">Access Control</span>
+            <span class="case-tag badge-green">Audit Logging</span>
+            <span class="case-tag badge-blue">Integrity Check</span>
+          </div>
+          <div class="case-footer">
+            <span class="case-access">ACCESS: OPEN-SOURCE</span>
+            <a href="https://github.com/Cybernextin/FTMS-Sentinal" target="_blank" class="case-link">⟩ VIEW ON GITHUB</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1300,7 +1350,6 @@ section { position: relative; z-index: 1; }
   </div>
 </section>
 
-
 <!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact">
   <div class="sec-wrap">
@@ -1341,7 +1390,7 @@ section { position: relative; z-index: 1; }
           <div class="comm-rows">
             <div class="comm-row">
               <span class="comm-key">EMAIL</span>
-              <span class="comm-value"><a href="/cdn-cgi/l/email-protection#5435273c233d3a656266643736143339353d387a373b39"><span class="__cf_email__" data-cfemail="3455475c435d5a050206045756745359555d581a575b59">[email&#160;protected]</span></a></span>
+              <span class="comm-value"><a href="mailto:ashwin1620cb@gmail.com">ashwin1620cb@gmail.com</a></span>
             </div>
             <div class="comm-row">
               <span class="comm-key">LOCATION</span>
@@ -1365,7 +1414,7 @@ section { position: relative; z-index: 1; }
             </div>
           </div>
         </div>
-        <!-- Social links as structured grid inside the same panel -->
+        <!-- Social links -->
         <div class="comm-socials">
           <a href="https://www.linkedin.com/in/ashwin-t-987318306/" target="_blank" class="social-btn">
             <span class="sb-icon">🔗</span><span class="sb-label">LinkedIn</span><span class="sb-arrow">›</span>
@@ -1432,7 +1481,7 @@ section { position: relative; z-index: 1; }
 <!-- ════════════════════════════════════════════════════
      JAVASCRIPT
 ════════════════════════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ─ BOOT LOADER ─ */
 const bootLines = [
   {t:'ok', m:'Loading kernel modules...'},
@@ -1575,7 +1624,6 @@ const particles = Array.from({length: 160}, () => new Particle());
 let mouseX2 = -999, mouseY2 = -999;
 document.addEventListener('mousemove', e => { mouseX2 = e.clientX; mouseY2 = e.clientY; });
 
-// Matrix code columns
 const cols = Math.floor(window.innerWidth / 20);
 const drops = Array.from({length: cols}, () => Math.random() * -100);
 const matrixChars = '01アイウエオカキクケコサシスセソタチツテト∑∆ΩΨΦΠ';
@@ -1583,7 +1631,6 @@ const matrixChars = '01アイウエオカキクケコサシスセソタチツテ
 function bgFrame() {
   bgCtx.fillStyle = 'rgba(10,10,10,0.04)';
   bgCtx.fillRect(0, 0, BW, BH);
-  // Matrix rain
   bgCtx.font = '11px "Share Tech Mono"';
   drops.forEach((y, i) => {
     const char = matrixChars[Math.floor(Math.random() * matrixChars.length)];
@@ -1592,9 +1639,7 @@ function bgFrame() {
     if (y * 20 > BH && Math.random() > 0.975) drops[i] = 0;
     else drops[i]++;
   });
-  // Particles
   particles.forEach(p => { p.update(); p.draw(); });
-  // Mouse connections
   particles.forEach(p => {
     const dx = p.x - mouseX2, dy = p.y - mouseY2, d = Math.sqrt(dx*dx + dy*dy);
     if (d < 100) {
@@ -1602,7 +1647,6 @@ function bgFrame() {
       bgCtx.strokeStyle = `rgba(0,255,156,${0.1 * (1 - d/100)})`; bgCtx.lineWidth = 0.4; bgCtx.stroke();
     }
   });
-  // Inter-particle lines
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
       const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
@@ -1617,7 +1661,7 @@ function bgFrame() {
 }
 bgFrame();
 
-/* ─ REVEAL OBSERVER ─ */
+/* ─ REVEAL OBSERVER — handles .reveal, .reveal-l, .reveal-r AND .reveal-slide-l ─ */
 const revObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -1628,7 +1672,7 @@ const revObs = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.1 });
-document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => revObs.observe(el));
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-slide-l').forEach(el => revObs.observe(el));
 
 /* ─ TERMINAL ─ */
 const termBody = document.getElementById('termBody');
@@ -1677,8 +1721,9 @@ const termCommands = {
 <span class="term-output">GITHUB:   github.com/Cybernextin</span>
 <span class="term-output">WHATSAPP: +91 99402 32599</span>`,
   projects: () => `<span class="term-output info">DECRYPTING PROJECT_FILES...</span>
-<span class="term-output success">[ACTIVE]  CTF Machine — TryHackMe/jr/shakthimaan</span>
-<span class="term-output">[LIVE]    Outfit Analyzer — cybernextin.github.io</span>`,
+<span class="term-output success">[ACTIVE]  CTF Machine      — tryhackme.com/jr/shakthimaan</span>
+<span class="term-output">[LIVE]    Outfit Analyzer  — cybernextin.github.io/Outfit-Analyzer</span>
+<span class="term-output success">[BETA]    FTMS Sentinel    — github.com/Cybernextin/FTMS-Sentinal</span>`,
   scan: () => {
     setTimeout(() => addTermLines([
       `<span class="term-output warning">Starting Nmap 7.94 scan...</span>`,
